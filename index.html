@@ -142,11 +142,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--t
   <p class="hero-sub">쌓여만 가는 짐, 어디서 시작할지 막막할 때<br>정리의시간이 처음부터 끝까지 함께합니다</p>
   <div class="hero-form">
     <p class="hero-form-title">전화번호만 남기시면 <strong>30분 내 연락</strong>드려요</p>
-    <div class="input-wrap">
-      <input type="tel" placeholder="010-0000-0000" id="heroPhone"/>
-      <button class="cta-btn" onclick="submitHero()">상담 신청</button>
-    </div>
-    <p class="form-note">📌 개인정보는 상담 목적 외 사용되지 않습니다</p>
+    <form action="https://formspree.io/f/mpqbqlpn" method="POST" style="display:flex;flex-direction:column;gap:10px;">
+      <input type="hidden" name="신청경로" value="상단 폼"/>
+      <div class="input-wrap" style="flex-direction:column;gap:10px;">
+        <input type="tel" name="연락처" placeholder="010-0000-0000" required style="flex:1;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:14px 16px;color:white;font-family:'Noto Sans KR',sans-serif;font-size:14px;outline:none;"/>
+        <button type="submit" class="cta-btn">상담 신청</button>
+      </div>
+      <p class="form-note">📌 개인정보는 상담 목적 외 사용되지 않습니다</p>
+    </form>
   </div>
   <div class="trust-bar">
     <div class="trust-item"><span class="trust-num">500+</span><span class="trust-label">시공 완료</span></div>
@@ -322,12 +325,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--t
       <span class="btn-arrow">→</span>
     </a>
   </div>
-  <div class="simple-form">
+  <form action="https://formspree.io/f/mpqbqlpn" method="POST" class="simple-form">
+    <input type="hidden" name="신청경로" value="하단 폼"/>
     <p class="form-title">지금 바로 연락받기 어려우시면 번호 남겨주세요</p>
-    <div class="form-row"><input type="text" placeholder="이름" id="name"/></div>
-    <div class="form-row"><input type="tel" placeholder="연락처 010-0000-0000" id="phone"/></div>
-    <button class="submit-btn" onclick="submitForm()">상담 신청 → 30분 내 연락드려요</button>
-  </div>
+    <div class="form-row"><input type="text" name="이름" placeholder="이름" required/></div>
+    <div class="form-row"><input type="tel" name="연락처" placeholder="연락처 010-0000-0000" required/></div>
+    <button type="submit" class="submit-btn">상담 신청 → 30분 내 연락드려요</button>
+  </form>
 </section>
 
 <footer class="footer">
